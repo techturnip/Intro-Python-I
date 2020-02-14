@@ -31,6 +31,56 @@ import sys
 import calendar
 from datetime import datetime
 
-ARGS = [arg for arg in sys.argv[1:]]
+# GRAB COMMANDLINE ARGS
+ARGS = [ARG for ARG in sys.argv[1:]]
+# CREATE CALENDAR OBJECT
+CAL = calendar.TextCalendar(calendar.SUNDAY)
+# GRAB TODAY'S DATE
+TODAY = datetime.now()
 
-print(ARGS)
+
+# Sort list to ensure index order
+def arg_len(single_arg):
+    """Function returns the length of the string argument"""
+    return len(single_arg)
+
+# Use arg_len() as the key for sorting ARGS list by str length
+ARGS.sort(key=arg_len)
+
+# Pull out ARGS length for conditional
+NUM_OF_ARGS = len(ARGS)
+
+if NUM_OF_ARGS > 0:
+    MONTH = int(ARGS[0])
+
+if NUM_OF_ARGS > 1:
+    YEAR = int(ARGS[1])
+
+# Conditional logic to determine the value of global CAL_STR variable to print to console
+if ARGS:
+    # Check the length of the args array
+    if NUM_OF_ARGS == 1:
+        # Check for a valid month
+        if MONTH > 0 and MONTH <= 12:
+            CAL_STR = CAL.formatmonth(TODAY.year, MONTH)
+            print(CAL_STR)
+        # Else print an error and instructions
+        else:
+            sys.exit("Invalid month: Please enter a valid month integer")
+    elif NUM_OF_ARGS == 2:
+        # Check for invalid month
+        if MONTH < 1 or MONTH > 12:
+            sys.exit("Invalid month: Please enter a valid month integer")
+        # Check for invalid year
+        elif len(ARGS[1]) != 4:
+            sys.exit("Invalid year: Please enter a valid 4 digit year")
+        # Else print calendar
+        else:
+            CAL_STR = CAL.formatmonth(YEAR, MONTH)
+            print(CAL_STR)
+    else:
+        sys.exit("Too many arguments: Please enter valid 2 digit month and 4 digit year")
+elif not ARGS:
+    # Default cal if no ARGS
+    CAL_STR = CAL.formatmonth(TODAY.year, TODAY.month)
+    print(CAL_STR)

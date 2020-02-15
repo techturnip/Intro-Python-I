@@ -10,7 +10,7 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # Note: pay close attention to your current directory when trying to open "foo.txt"
 
 # YOUR CODE HERE
-foo = open("src/foo.txt","r")
+foo = open("src/foo.txt", "r") # pylint: disable=blacklisted-name
 print(foo.read())
 foo.close()
 
@@ -20,7 +20,7 @@ foo.close()
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
-bar = open("src/bar.txt", "w")
+bar = open("src/bar.txt", "w") # pylint: disable=blacklisted-name
 bar.write("This is\n")
 bar.write("some arbitrary\n")
 bar.write("content!\n")

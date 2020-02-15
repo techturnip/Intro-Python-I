@@ -1,8 +1,15 @@
+"""
+Working with classes in python
+"""
+
+# pylint: disable=too-few-public-methods
+
 # Make a class LatLon that can be passed parameters `lat` and `lon` to the
 # constructor
 
 # YOUR CODE HERE
 class LatLon:
+    """ Class that stores lat, lon values """
     def __init__(self, lat, lon):
         self.lat = lat
         self.lon = lon
@@ -12,6 +19,7 @@ class LatLon:
 
 # YOUR CODE HERE
 class Waypoint(LatLon):
+    """ Child of LatLon class """
     def __init__(self, name, lat, lon):
         super().__init__(lat, lon)
         self.name = name
@@ -24,7 +32,8 @@ class Waypoint(LatLon):
 
 # YOUR CODE HERE
 class Geocache(Waypoint):
-    def __init__(self, name, difficulty, size, lat, lon):
+    """ Child of Waypoint class """
+    def __init__(self, name, difficulty, size, lat, lon): # pylint: disable=too-many-arguments
         super().__init__(name, lat, lon)
         self.difficulty = difficulty
         self.size = size
@@ -35,16 +44,16 @@ class Geocache(Waypoint):
 # Make a new waypoint and print it out: "Catacombs", 41.70505, -121.51521
 
 # YOUR CODE HERE
-waypoint = Waypoint("Catacombs", 41.70505, -121.51521)
+WAYPOINT = Waypoint("Catacombs", 41.70505, -121.51521)
 
 # Without changing the following line, how can you make it print into something
 # more human-readable? Hint: Look up the `object.__str__` method
-print(waypoint)
+print(WAYPOINT)
 
 # Make a new geocache "Newberry Views", diff 1.5, size 2, 44.052137, -121.41556
 
 # YOUR CODE HERE
-geocache = Geocache("Newberry Views", 1.5, 2, 44.052137, -121.41556)
+GEOCACHE = Geocache("Newberry Views", 1.5, 2, 44.052137, -121.41556)
 
 # Print it--also make this print more nicely
-print(geocache)
+print(GEOCACHE)

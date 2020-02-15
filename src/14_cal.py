@@ -61,7 +61,7 @@ if ARGS:
     # Check the length of the args array
     if NUM_OF_ARGS == 1:
         # Check for a valid month
-        if MONTH > 0 and MONTH <= 12:
+        if 0 < MONTH <= 12:
             CAL_STR = CAL.formatmonth(TODAY.year, MONTH)
             print(CAL_STR)
         # Else print an error and instructions

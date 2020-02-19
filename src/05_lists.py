@@ -1,29 +1,45 @@
+"""
+Use methods and functions that are available for Python Lists
+"""
 # For the exercise, look up the methods and functions that are available for use
 # with Python lists.
 
-x = [1, 2, 3]
-y = [8, 9, 10]
+X = [1, 2, 3]
+Y = [8, 9, 10]
 
 # For the following, DO NOT USE AN ASSIGNMENT (=).
 
-# Change x so that it is [1, 2, 3, 4]
+# Change X so that it is [1, 2, 3, 4]
 # YOUR CODE HERE
-print(x)
+X.append(4)
+print(X)
 
-# Using y, change x so that it is [1, 2, 3, 4, 8, 9, 10]
+# Using Y, change X so that it is [1, 2, 3, 4, 8, 9, 10]
 # YOUR CODE HERE
-print(x)
+for v in Y:
+    X.append(v)
+print(X)
 
-# Change x so that it is [1, 2, 3, 4, 9, 10]
+# Change X so that it is [1, 2, 3, 4, 9, 10]
 # YOUR CODE HERE
-print(x)
+# for v in X:
+#     if v == 8:
+#         X.remove(v)
+X.remove(8)
+print(X)
 
-# Change x so that it is [1, 2, 3, 4, 9, 99, 10]
+# Change X so that it is [1, 2, 3, 4, 9, 99, 10]
 # YOUR CODE HERE
-print(x)
+for (i, v) in enumerate(X):
+    if v == 9:
+        X.insert(i + 1, 99)
+print(X)
 
-# Print the length of list x
+# Print the length of list X
 # YOUR CODE HERE
+print(len(X))
 
-# Print all the values in x multiplied by 1000
+# Print all the values in X multiplied bY 1000
 # YOUR CODE HERE
+for v in X:
+    print(v * 1000)
